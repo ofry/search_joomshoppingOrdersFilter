@@ -130,4 +130,9 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 	{
 
 	}
+
+	public function onBeforeShowOrderListView($view_array)
+	{
+		var_dump($view_array);
+	}
 }

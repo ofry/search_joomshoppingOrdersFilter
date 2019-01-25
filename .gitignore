@@ -1108,4 +1108,4 @@ Temporary Items
 *.ori
 
 ### Other junk
-Joomla_extension_test_task_plugin.iml
+*.iml
