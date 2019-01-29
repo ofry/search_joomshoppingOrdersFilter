@@ -134,7 +134,21 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 	public function onBeforeShowOrderListView(JshoppingViewOrders $view)
 	{
 		if (property_exists($view, 'lists')) {
-			var_dump($view->lists);
+			if (isset($view->lists['changestatus'])) {
+				libxml_use_internal_errors(true);
+				$dom = new DOMDocument();
+				$dom->loadHTML($view->lists['changestatus'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+				$select = simplexml_import_dom($dom);
+				/*
+				 * Добавляем возможность множественного выбора
+				 */
+				if (!isset($select->multiple)) {
+					$select->addAttribute('multiple', 'multiple');
+				}
+				$select_dom = dom_import_simplexml($select);
+				$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML();
+			}
 		}
+
 	}
 }
