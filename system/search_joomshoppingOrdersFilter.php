@@ -131,8 +131,10 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 
 	}
 
-	public function onBeforeShowOrderListView($view_array)
+	public function onBeforeShowOrderListView(JshoppingViewOrders $view)
 	{
-		var_dump($view_array);
+		if (property_exists($view, 'lists')) {
+			var_dump($view->lists);
+		}
 	}
 }
