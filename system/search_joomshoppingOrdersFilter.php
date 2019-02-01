@@ -144,11 +144,22 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 				 */
 				if (!isset($select->multiple)) {
 					$select->addAttribute('multiple', 'multiple');
+					$select->name .= '[]';
 				}
 				$select_dom = dom_import_simplexml($select);
 				$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML();
 			}
 		}
 
+	}
+
+	public function onBeforeQueryGetCountAllOrders($params)
+	{
+		//var_dump($params);
+	}
+
+	public function onBeforeQueryGetAllOrders($params)
+	{
+		//var_dump($params);
 	}
 }
