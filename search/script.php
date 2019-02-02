@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @package     A package name
  * @since       1.0
  */
-class plgSystemSearch_joomshoppingOrdersFilterInstallerScript
+class plgSearch_joomshoppingOrdersFilterInstallerScript
 {
 	/**
 	 * Constructor

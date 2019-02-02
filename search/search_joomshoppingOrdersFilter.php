@@ -20,7 +20,7 @@ defined('_JEXEC') or die;
  * @package  search_joomshoppingOrdersFilter
  * @since    1.0
  */
-class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
+class plgSearch_joomshoppingOrdersFilter extends CMSPlugin
 {
 	/**
 	 * Application object
@@ -135,6 +135,8 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 	{
 		if (property_exists($view, 'lists')) {
 			if (isset($view->lists['changestatus'])) {
+				$doc = $this->app->getDocument();
+
 				libxml_use_internal_errors(true);
 				$dom = new DOMDocument();
 				$dom->loadHTML($view->lists['changestatus'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
@@ -153,12 +155,12 @@ class plgSystemSearch_joomshoppingOrdersFilter extends CMSPlugin
 
 	}
 
-	public function onBeforeQueryGetCountAllOrders($params)
+	public function onBeforeQueryGetCountAllOrders(&$params, array &$filters)
 	{
 		//var_dump($params);
 	}
 
-	public function onBeforeQueryGetAllOrders($params)
+	public function onBeforeQueryGetAllOrders(&$params, array &$filters, &$filter_order, &$filter_order_Dir)
 	{
 		//var_dump($params);
 	}
