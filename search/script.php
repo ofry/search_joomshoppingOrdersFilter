@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    searchJoomshoppingOrdersFilter
+ * @package    joomshoppingOrdersFilter
  *
  * @author     ofryak <your@email.com>
  * @copyright  A copyright
@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 
 /**
- * Search_joomshoppingOrdersFilter script file.
+ * joomshoppingOrdersFilter script file.
  *
  * @package     A package name
  * @since       1.0
