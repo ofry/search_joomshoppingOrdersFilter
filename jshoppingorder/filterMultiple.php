@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    joomshoppingOrdersFilter
+ * @package    filterMultiple
  *
  * @author     ofryak <your@email.com>
  * @copyright  A copyright
@@ -15,12 +15,12 @@ use Joomla\CMS\Plugin\CMSPlugin;
 defined('_JEXEC') or die;
 
 /**
- * joomshoppingOrdersFilter plugin.
+ * filterMultiple plugin.
  *
- * @package  joomshoppingOrdersFilter
+ * @package  filterMultiple
  * @since    1.0
  */
-class plgSearchJoomshoppingOrdersFilter extends CMSPlugin
+class plgJshoppingorderFilterMultiple extends CMSPlugin
 {
 	/**
 	 * Application object
@@ -45,91 +45,6 @@ class plgSearchJoomshoppingOrdersFilter extends CMSPlugin
 	 * @since  1.0
 	 */
 	protected $autoloadLanguage = true;
-
-	/**
-	 * onAfterInitialise.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterInitialise()
-	{
-
-	}
-
-	/**
-	 * onAfterRoute.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterRoute()
-	{
-
-	}
-
-	/**
-	 * onAfterDispatch.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterDispatch()
-	{
-
-	}
-
-	/**
-	 * onAfterRender.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterRender()
-	{
-		// Access to plugin parameters
-		$sample = $this->params->get('sample', '42');
-	}
-
-	/**
-	 * onAfterCompileHead.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterCompileHead()
-	{
-
-	}
-
-	/**
-	 * OnAfterCompress.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterCompress()
-	{
-
-	}
-
-	/**
-	 * onAfterRespond.
-	 *
-	 * @return  void.
-	 *
-	 * @since   1.0
-	 */
-	public function onAfterRespond()
-	{
-
-	}
 
 	public function onBeforeShowOrderListView(JshoppingViewOrders $view)
 	{

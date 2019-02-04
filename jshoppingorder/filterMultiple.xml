@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="3.8" group="search" method="upgrade">
-	<name>PLG_SEARCH_JOOMSHOPPINGORDERSFILTER</name>
+<extension type="plugin" version="3.8" group="jsnoppingorder" method="upgrade">
+	<name>PLG_JSHOPPINGORDER_FILTERMULTIPLE</name>
 	<creationDate>24.01.19</creationDate>
 	<author>ofryak</author>
 	<authorEmail>your@email.com</authorEmail>
@@ -8,22 +8,22 @@
 	<copyright>A copyright</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>1.0</version>
-	<description>PLG_SEARCH_JOOMSHOPPINGORDERSFILTER_XML_DESCRIPTION</description>
+	<description>PLG_JSHOPPINGORDER_FILTERMULTIPLE_XML_DESCRIPTION</description>
 
 	<!-- Scripts to run on installation -->
 	<scriptfile></scriptfile>
 
 	<!-- Plugin files -->
 	<files>
-		<filename plugin="joomshoppingOrdersFilter">joomshoppingOrdersFilter.php</filename>
+		<filename plugin="filterMultiple">filterMultiple.php</filename>
 		<folder>language</folder>
 	</files>
 
 
 	<!-- Language files -->
 	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.plg_search_joomshoppingOrdersFilter.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.plg_search_joomshoppingOrdersFilter.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_jsnoppingorder_filterMultiple.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_jsnoppingorder_filterMultiple.sys.ini</language>
 	</languages>
 
 	<!-- Config parameter -->
@@ -34,8 +34,8 @@
 						name="sample"
 						type="text"
 						default="42"
-						label="PLG_SEARCH_JOOMSHOPPINGORDERSFILTER_SAMPLE_LABEL"
-						description="PLG_SEARCH_JOOMSHOPPINGORDERSFILTER_SAMPLE_DESCRIPTION"
+						label="PLG_JSHOPPINGORDER_FILTERMULTIPLE_SAMPLE_LABEL"
+						description="PLG_JSHOPPINGORDER_FILTERMULTIPLE_SAMPLE_DESCRIPTION"
 				/>
 			</fieldset>
 		</fields>
@@ -43,6 +43,6 @@
 
 	<!-- Update servers -->
 	<updateservers>
-		<server type="extension" priority="1" name="joomshoppingOrdersFilter">https://www.example.com/plg_search_joomshoppingOrdersFilter.xml</server>
+		<server type="extension" priority="1" name="filterMultiple">https://www.example.com/plg_jshoppingorder_filterMultiple.xml</server>
 	</updateservers>
 </extension>

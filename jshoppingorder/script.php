@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    joomshoppingOrdersFilter
+ * @package    filterMultiple
  *
  * @author     ofryak <your@email.com>
  * @copyright  A copyright
@@ -11,12 +11,12 @@
 defined('_JEXEC') or die;
 
 /**
- * joomshoppingOrdersFilter script file.
+ * filterMultiple script file.
  *
  * @package     A package name
  * @since       1.0
  */
-class plgSearchJoomshoppingOrdersFilterInstallerScript
+class plgJshoppingorderFilterMultipleInstallerScript
 {
 	/**
 	 * Constructor
