@@ -15,7 +15,7 @@
 
 	<!-- Plugin files -->
 	<files>
-		<filename plugin="search_joomshoppingOrdersFilter">search_joomshoppingOrdersFilter.php</filename>
+		<filename plugin="joomshoppingOrdersFilter">joomshoppingOrdersFilter.php</filename>
 		<folder>language</folder>
 	</files>
 
@@ -43,6 +43,6 @@
 
 	<!-- Update servers -->
 	<updateservers>
-		<server type="extension" priority="1" name="search_joomshoppingOrdersFilter">https://www.example.com/plg_search_joomshoppingOrdersFilter.xml</server>
+		<server type="extension" priority="1" name="joomshoppingOrdersFilter">https://www.example.com/plg_search_joomshoppingOrdersFilter.xml</server>
 	</updateservers>
 </extension>

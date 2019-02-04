@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    search_joomshoppingOrdersFilter
+ * @package    searchJoomshoppingOrdersFilter
  *
  * @author     ofryak <your@email.com>
  * @copyright  A copyright
@@ -15,12 +15,12 @@ use Joomla\CMS\Plugin\CMSPlugin;
 defined('_JEXEC') or die;
 
 /**
- * Search_joomshoppingOrdersFilter plugin.
+ * SearchJoomshoppingOrdersFilter plugin.
  *
  * @package  search_joomshoppingOrdersFilter
  * @since    1.0
  */
-class plgSearch_joomshoppingOrdersFilter extends CMSPlugin
+class plgSearchJoomshoppingOrdersFilter extends CMSPlugin
 {
 	/**
 	 * Application object
