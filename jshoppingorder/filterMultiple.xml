@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="3.8" group="jsnoppingorder" method="upgrade">
+<extension type="plugin" version="3.8" group="jshoppingorder" method="upgrade">
 	<name>PLG_JSHOPPINGORDER_FILTERMULTIPLE</name>
 	<creationDate>24.01.19</creationDate>
 	<author>ofryak</author>
