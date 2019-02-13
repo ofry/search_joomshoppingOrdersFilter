@@ -22,8 +22,8 @@
 
 	<!-- Language files -->
 	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.plg_jsnoppingorder_filterMultiple.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.plg_jsnoppingorder_filterMultiple.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_jshoppingorder_filterMultiple.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_jshoppingorder_filterMultiple.sys.ini</language>
 	</languages>
 
 	<!-- Config parameter -->
