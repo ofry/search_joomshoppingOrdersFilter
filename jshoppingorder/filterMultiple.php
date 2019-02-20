@@ -50,21 +50,43 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 	{
 		if (property_exists($view, 'lists')) {
 			if (isset($view->lists['changestatus'])) {
-				$doc = $this->app->getDocument();
-
 				libxml_use_internal_errors(true);
 				$dom = new DOMDocument();
 				$dom->loadHTML($view->lists['changestatus'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 				$select = simplexml_import_dom($dom);
+
 				/*
 				 * Добавляем возможность множественного выбора
 				 */
 				if (!isset($select->multiple)) {
 					$select->addAttribute('multiple', 'multiple');
-					$select->name .= '[]';
+					$select_dom = dom_import_simplexml($select);
+					$select_origname = $select_dom->getAttribute('name');
+					$select_newname = $select_origname . '_multi';
+					$select_dom->setAttribute('name',
+						$select_newname . '[]');
+					$select_dom->setAttribute('id', $select_newname);
+					$hidden_input = '<input type="hidden" name="' . $select_origname . '"
+					 id="' . $select_origname . '"  />';
+					$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML()
+						. $hidden_input;
+					/*
+					 * Добавляем скрипт для обработки множественного выбора
+					 */
+					$view->_tmp_order_list_html_end = '
+	<script type="text/javascript">
+		(function($){
+		    var origName = '. $select_origname . ';
+		    var newName = origName + "_multi";
+		    $("form#adminForm").submit(function(event) {
+		        var form = $(this);
+		        console.log(form.find("#" + newName));
+		        return false;
+		    })
+		}(jQuery));
+	</script>';
+
 				}
-				$select_dom = dom_import_simplexml($select);
-				$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML();
 			}
 		}
 
