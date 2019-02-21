@@ -95,8 +95,17 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 		    });
 		    $("form#adminForm").submit(function(event) {
 		        var form = $(this);
-		        console.log(form.find("#" + newName).find("option").filter(":selected"));
-		        return false;
+		        var multiValues = form.find("#" + newName)
+		        					.find("option")
+		        					.filter(":selected")
+		        					.map(function() {
+		        					    return this.value;
+		        					})
+		        					.get()
+		        					.join(";");
+		        form.find("#" + origName).val(multiValues);
+		        //console.log(form.find("#" + origName).val());
+		        //return false;
 		    })
 		}(jQuery));
 	</script>';
@@ -107,13 +116,41 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 
 	}
 
-	public function onBeforeQueryGetCountAllOrders(&$params, array &$filters)
+	public function onBeforeQueryGetCountAllOrders(&$query, array &$filters)
 	{
-		//var_dump($params);
+		if ($filters['status_id']) {
+			$status_values = explode(';', $filters['status_id']);
+			foreach ($status_values as &$status_value) {
+				$status_value = "'" . $this->db->escape($status_value) . "'";
+			}
+			unset($status_value);
+
+			$pattern = "/order_status\s*=\s*'[0-9;]*'/ui";
+			$in = implode(', ', $status_values);
+
+			$replace = "order_status in (" . $in . ") ";
+
+			$query = preg_replace($pattern, $replace, $query);
+		}
 	}
 
-	public function onBeforeQueryGetAllOrders(&$params, array &$filters, &$filter_order, &$filter_order_Dir)
+	public function onBeforeQueryGetAllOrders(&$query, array &$filters, &$filter_order, &$filter_order_Dir)
 	{
-		//var_dump($params);
+		if ($filters['status_id']) {
+			$status_values = explode(';', $filters['status_id']);
+			foreach ($status_values as &$status_value) {
+				$status_value = "'" . $this->db->escape($status_value) . "'";
+			}
+			unset($status_value);
+
+			$pattern = "/order_status\s*=\s*'[0-9;]*'/ui";
+			$in = implode(', ', $status_values);
+
+			$replace = "order_status in (" . $in . ") ";
+
+
+			$query = preg_replace($pattern, $replace, $query);
+
+		}
 	}
 }
