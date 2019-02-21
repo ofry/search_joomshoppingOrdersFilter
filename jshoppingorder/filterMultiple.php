@@ -66,6 +66,9 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 					$select_dom->setAttribute('name',
 						$select_newname . '[]');
 					$select_dom->setAttribute('id', $select_newname);
+					/*
+					 * Создаем скрытое поле
+					 */
 					$hidden_input = '<input type="hidden" name="' . $select_origname . '"
 					 id="' . $select_origname . '"  />';
 					$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML()
@@ -76,11 +79,23 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 					$view->_tmp_order_list_html_end = '
 	<script type="text/javascript">
 		(function($){
-		    var origName = '. $select_origname . ';
+		    var origName = "'. $select_origname . '";
 		    var newName = origName + "_multi";
+		    $("#" + newName).change(function(event) {
+		        var element = $(this);
+		        if (element.find("option").filter(":selected").length === 0) {
+		            element.find(":first").prop("selected", true);
+		            element.trigger("change").trigger("liszt:updated").trigger("chosen:updated");
+		        }
+		        else if ((element.find("option").filter(":selected").length > 1)
+		         && (element.find(":first").filter(":selected").length !== 0)){
+		            element.find(":first").removeAttr("selected").prop("selected", false);
+		            element.trigger("change").trigger("liszt:updated").trigger("chosen:updated");
+		        }
+		    });
 		    $("form#adminForm").submit(function(event) {
 		        var form = $(this);
-		        console.log(form.find("#" + newName));
+		        console.log(form.find("#" + newName).find("option").filter(":selected"));
 		        return false;
 		    })
 		}(jQuery));
