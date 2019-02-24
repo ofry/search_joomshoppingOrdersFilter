@@ -2,10 +2,10 @@
 /**
  * @package    filterMultiple
  *
- * @author     ofryak <your@email.com>
- * @copyright  A copyright
+ * @author     ofry <tim4job@bmail.ru>
+ * @copyright
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
- * @link       http://your.url.com
+ * @link       https://github.com/ofry
  */
 
 use Joomla\CMS\Application\CMSApplication;

@@ -2,10 +2,10 @@
 <extension type="plugin" version="3.8" group="jshoppingorder" method="upgrade">
 	<name>PLG_JSHOPPINGORDER_FILTERMULTIPLE</name>
 	<creationDate>24.01.19</creationDate>
-	<author>ofryak</author>
-	<authorEmail>your@email.com</authorEmail>
-	<authorUrl>http://your.url.com</authorUrl>
-	<copyright>A copyright</copyright>
+	<author>ofry</author>
+	<authorEmail>tim4job@bmail.ru</authorEmail>
+	<authorUrl>https://github.com/ofry</authorUrl>
+	<copyright></copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>1.0</version>
 	<description>PLG_JSHOPPINGORDER_FILTERMULTIPLE_XML_DESCRIPTION</description>
@@ -25,24 +25,4 @@
 		<language tag="en-GB">language/en-GB/en-GB.plg_jshoppingorder_filterMultiple.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.plg_jshoppingorder_filterMultiple.sys.ini</language>
 	</languages>
-
-	<!-- Config parameter -->
-	<config>
-		<fields name="params">
-			<fieldset name="basic">
-				<field
-						name="sample"
-						type="text"
-						default="42"
-						label="PLG_JSHOPPINGORDER_FILTERMULTIPLE_SAMPLE_LABEL"
-						description="PLG_JSHOPPINGORDER_FILTERMULTIPLE_SAMPLE_DESCRIPTION"
-				/>
-			</fieldset>
-		</fields>
-	</config>
-
-	<!-- Update servers -->
-	<updateservers>
-		<server type="extension" priority="1" name="filterMultiple">https://www.example.com/plg_jshoppingorder_filterMultiple.xml</server>
-	</updateservers>
 </extension>
