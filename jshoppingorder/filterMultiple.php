@@ -69,8 +69,10 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 					/*
 					 * Создаем скрытое поле
 					 */
+					$select_status = isset($view->filter['status_id']) ?
+						$view->filter['status_id'] : '';
 					$hidden_input = '<input type="hidden" name="' . $select_origname . '"
-					 id="' . $select_origname . '"  />';
+					 id="' . $select_origname . '" value="' . $select_status . '" />';
 					$view->lists['changestatus'] = $select_dom->ownerDocument->saveHTML()
 						. $hidden_input;
 					/*
@@ -79,9 +81,32 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 					$view->_tmp_order_list_html_end = '
 	<script type="text/javascript">
 		(function($){
+		    function contains(arr, elem) {
+    			return arr.indexOf(elem) !== -1;
+			}
 		    var origName = "'. $select_origname . '";
 		    var newName = origName + "_multi";
-		    $("#" + newName).change(function(event) {
+		    
+		    var defaultValuesString = $("#" + origName)
+		    						.val()
+		    						.trim();
+		    var defaultValues = (defaultValuesString.length > 0) ?
+		    						defaultValuesString
+		    						.split(";")
+		    						.map(function (value, index, array) {
+		        						return parseInt(value);
+		      						})
+		      						: [];
+		   
+	        $("#" + newName).find("option").each(function(index, element) {
+	            if (contains(defaultValues, parseInt($(element).val()))) {
+	                $(element).prop("selected", true);
+	            }
+	        });
+	        $("#" + newName).trigger("change").trigger("liszt:updated").trigger("chosen:updated");
+	        
+		    $("#" + newName)
+		    	.change(function(event) {
 		        var element = $(this);
 		        if (element.find("option").filter(":selected").length === 0) {
 		            element.find(":first").prop("selected", true);
@@ -104,8 +129,6 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 		        					.get()
 		        					.join(";");
 		        form.find("#" + origName).val(multiValues);
-		        //console.log(form.find("#" + origName).val());
-		        //return false;
 		    })
 		}(jQuery));
 	</script>';
@@ -150,7 +173,6 @@ class plgJshoppingorderFilterMultiple extends CMSPlugin
 
 
 			$query = preg_replace($pattern, $replace, $query);
-
 		}
 	}
 }
